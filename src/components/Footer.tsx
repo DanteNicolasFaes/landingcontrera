@@ -45,7 +45,6 @@ export default function Footer() {
               <div className="flex flex-col gap-2">
                 <a href="#estudio" className="text-[13px] text-white/50 hover:text-white transition-colors font-medium">El Estudio</a>
                 <a href="#como-trabajamos" className="text-[13px] text-white/50 hover:text-white transition-colors font-medium">Cómo trabajamos</a>
-                <a href="#faq" className="text-[13px] text-white/50 hover:text-white transition-colors font-medium">Preguntas frecuentes</a>
                 <a href="#contacto" className="text-[13px] text-white/50 hover:text-white transition-colors font-medium">Contacto</a>
               </div>
             </div>

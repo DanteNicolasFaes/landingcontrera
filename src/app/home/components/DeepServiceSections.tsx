@@ -34,9 +34,10 @@ const sections: ServiceDeepSection[] = [
   ctaLabel: 'Consultar sobre Familia',
   imageUrl: "https://img.rocket.new/generatedImages/rocket_gen_img_15222b596-1773140105247.png",
   imageAlt: 'Abogada atendiendo a una familia en consulta jurídica',
-  bgClass: 'bg-[#F7F4EE]',
-  textClass: 'text-[#1C2B4A]',
-  accentClass: 'text-[#C8A96E]'
+  bgClass: 'bg-[#0F1923]',
+  textClass: 'text-white',
+  accentClass: 'text-[#C8A96E]',
+  reverse: true
 },
 {
   id: 'sucesiones-detail',
@@ -49,10 +50,10 @@ const sections: ServiceDeepSection[] = [
   ctaLabel: 'Consultar sobre Sucesiones',
   imageUrl: "https://img.rocket.new/generatedImages/rocket_gen_img_1f62a12da-1773140100883.png",
   imageAlt: 'Documentos legales de sucesión y herencia sobre escritorio',
-  bgClass: 'bg-[#0F1923]',
-  textClass: 'text-white',
+  bgClass: 'bg-[#F7F4EE]',
+  textClass: 'text-[#1C2B4A]',
   accentClass: 'text-[#C8A96E]',
-  reverse: true
+  reverse: false
 },
 {
   id: 'accidentes-detail',
@@ -65,9 +66,10 @@ const sections: ServiceDeepSection[] = [
   ctaLabel: 'Consultar sobre mi Accidente',
   imageUrl: "https://img.rocket.new/generatedImages/rocket_gen_img_13fffeb76-1773140103139.png",
   imageAlt: 'Accidente de tránsito en Argentina — reclamo a aseguradora',
-  bgClass: 'bg-[#F7F4EE]',
-  textClass: 'text-[#1C2B4A]',
-  accentClass: 'text-[#C8A96E]'
+  bgClass: 'bg-[#0F1923]',
+  textClass: 'text-white',
+  accentClass: 'text-[#C8A96E]',
+  reverse: true
 },
 {
   id: 'laboral-detail',
@@ -80,10 +82,10 @@ const sections: ServiceDeepSection[] = [
   ctaLabel: 'Consultar sobre mi caso Laboral',
   imageUrl: "https://img.rocket.new/generatedImages/rocket_gen_img_122dcd94c-1773140102971.png",
   imageAlt: 'Trabajador reclamando derechos laborales con asesoramiento jurídico',
-  bgClass: 'bg-[#0F1923]',
-  textClass: 'text-white',
+  bgClass: 'bg-[#F7F4EE]',
+  textClass: 'text-[#1C2B4A]',
   accentClass: 'text-[#C8A96E]',
-  reverse: true
+  reverse: false
 }];
 
 

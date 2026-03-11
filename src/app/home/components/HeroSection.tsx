@@ -78,7 +78,7 @@ export default function HeroSection() {
 
             {/* H1 */}
             <h1
-              className="hero-title font-serif text-white"
+              className="hero-title font-serif text-white text-3xl md:text-4xl lg:text-5xl max-w-2xl leading-[0.95]"
               style={{ animation: 'animationIn 0.8s ease-out 0.2s both' }}
             >
               <span className="block text-white/75 font-light italic">Abogada en derecho de familia,</span>

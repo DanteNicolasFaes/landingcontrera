@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import AppLogo from '@/components/ui/AppLogo';
 import Link from 'next/link';
 
 const navLinks = [
@@ -34,17 +33,12 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 flex items-center justify-between h-18 py-3">
         {/* Logo */}
-        <Link href="#inicio" className="flex items-center gap-3 group" aria-label="Contrera & Asoc. - Inicio">
-          <AppLogo
-            src="/assets/images/1000403833-1773139213126.png"
-            size={60}
-            className="transition-transform duration-300 group-hover:scale-105"
-          />
-          <div className="hidden sm:flex flex-col ml-1">
-            <span className="font-serif text-white font-medium text-base leading-tight tracking-tight">
+        <Link href="#inicio" className="flex items-center group transition-transform duration-300 hover:scale-[1.02]" aria-label="Contrera & Asoc. - Inicio">
+          <div className="flex flex-col leading-none">
+            <span className="font-serif text-white text-lg tracking-tight">
               Contrera & Asoc.
             </span>
-            <span className="text-gold-DEFAULT text-[10px] tracking-[0.15em] uppercase font-sans text-[#C8A96E]">
+            <span className="text-[10px] uppercase tracking-[0.35em] text-gold-gradient mt-1">
               Estudio Jurídico
             </span>
           </div>

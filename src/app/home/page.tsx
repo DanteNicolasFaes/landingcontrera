@@ -8,7 +8,6 @@ import ServicesSection from './components/ServicesSection';
 import AboutSection from './components/AboutSection';
 import DeepServiceSections from './components/DeepServiceSections';
 import HowWeWorkSection from './components/HowWeWorkSection';
-import FAQSection from './components/FAQSection';
 import FinalCTASection from './components/FinalCTASection';
 import ContactSection from './components/ContactSection';
 import WhatsAppFloat from './components/WhatsAppFloat';
@@ -38,9 +37,6 @@ export default function HomePage() {
 
         {/* S11: How we work */}
         <HowWeWorkSection />
-
-        {/* S12: FAQ SEO */}
-        <FAQSection />
 
         {/* S13: Final CTA */}
         <FinalCTASection />

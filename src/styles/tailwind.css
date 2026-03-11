@@ -309,8 +309,6 @@ body {
 
 /* ── Responsive typography ── */
 .hero-title {
-  font-size: clamp(2.8rem, 8vw, 7rem);
-  line-height: 0.95;
   letter-spacing: -0.03em;
 }
 
