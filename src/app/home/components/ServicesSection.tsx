@@ -1,8 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-
-const WHATSAPP_NUMBER = '5491100000000';
+import { getWhatsAppUrl } from '@/lib/whatsapp';
 
 const services = [
   {
@@ -120,8 +119,8 @@ export default function ServicesSection() {
               <div className="border-t border-white/[0.05] pt-5 flex flex-col gap-4">
                 <p className="text-[12px] text-white/40 italic font-serif">{s.trust}</p>
                 <a
-                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(s.msg)}`}
-                  target="_blank"
+                  href="#"
+                  onClick={(e) => { e.preventDefault(); window.open(getWhatsAppUrl(encodeURIComponent(s.msg)), '_blank', 'noopener,noreferrer'); }}
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-[11px] uppercase tracking-widest text-[#C8A96E] hover:text-[#D9BE8A] font-semibold transition-colors group-hover:gap-3 duration-300"
                 >

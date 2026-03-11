@@ -2,8 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import AppImage from '@/components/ui/AppImage';
-
-const WHATSAPP_NUMBER = '5491100000000';
+import { getWhatsAppUrl } from '@/lib/whatsapp';
 
 interface ServiceDeepSection {
   id: string;
@@ -142,8 +141,8 @@ export default function DeepServiceSections() {
                 </ul>
 
                 <a
-                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(s.ctaMsg)}`}
-                target="_blank"
+                href="#"
+                onClick={(e) => { e.preventDefault(); window.open(getWhatsAppUrl(encodeURIComponent(s.ctaMsg)), '_blank', 'noopener,noreferrer'); }}
                 rel="noopener noreferrer"
                 className={`inline-flex items-center gap-3 w-fit font-semibold text-[12px] uppercase tracking-widest px-7 py-3.5 rounded-sm transition-all duration-300 hover:-translate-y-0.5 ${
                 s.bgClass === 'bg-[#0F1923]' ?

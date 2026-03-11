@@ -1,9 +1,8 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { getWhatsAppUrl } from '@/lib/whatsapp';
 
-
-const WHATSAPP_NUMBER = '5491100000000';
 const WHATSAPP_MSG_CONSULT = encodeURIComponent('Hola, quisiera hacer una consulta legal.');
 const WHATSAPP_MSG_INFO = encodeURIComponent('Hola, quisiera obtener más información sobre sus servicios.');
 
@@ -14,8 +13,44 @@ const badges = [
   { icon: '⏱️', label: 'Respuesta el mismo día' },
 ];
 
+function getAvailability() {
+  try {
+    const formatter = new Intl.DateTimeFormat('en-US', {
+      timeZone: 'America/Argentina/Buenos_Aires',
+      weekday: 'short',
+      hour: 'numeric',
+      hourCycle: 'h23',
+    });
+    const parts = formatter.formatToParts(new Date());
+    const weekday = parts.find((p) => p.type === 'weekday')?.value;
+    const hour = parseInt(parts.find((p) => p.type === 'hour')?.value || '0', 10);
+
+    if (weekday === 'Sat' || weekday === 'Sun') {
+      return { status: 'weekend', text: 'Atención de lunes a viernes' };
+    }
+    if (hour >= 13 && hour < 19) {
+      return { status: 'available', text: 'Disponible ahora' };
+    }
+    return { status: 'outside_hours', text: 'Fuera de horario' };
+  } catch (e) {
+    return { status: 'available', text: 'Disponible ahora' };
+  }
+}
+
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
+  const [availability, setAvailability] = useState({ status: 'available', text: 'Disponible ahora' });
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+    const updateAvailability = () => {
+      setAvailability(getAvailability());
+    };
+    updateAvailability();
+    const interval = setInterval(updateAvailability, 60000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const cards = sectionRef.current?.querySelectorAll<HTMLElement>('.spotlight-card');
@@ -105,8 +140,8 @@ export default function HeroSection() {
               style={{ animation: 'animationIn 0.8s ease-out 0.5s both' }}
             >
               <a
-                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG_CONSULT}`}
-                target="_blank"
+                href="#"
+                onClick={(e) => { e.preventDefault(); window.open(getWhatsAppUrl(WHATSAPP_MSG_CONSULT), '_blank', 'noopener,noreferrer'); }}
                 rel="noopener noreferrer"
                 className="group inline-flex items-center justify-center gap-3 bg-[#C8A96E] hover:bg-[#D9BE8A] text-[#0F1923] font-semibold text-[13px] uppercase tracking-widest px-8 py-4 rounded-sm transition-all duration-300 hover:-translate-y-0.5 shadow-gold hover:shadow-gold-lg"
               >
@@ -181,9 +216,19 @@ export default function HeroSection() {
                     <div className="text-[10px] text-white/30 uppercase tracking-widest mb-1">Disponibilidad</div>
                     <div className="text-[12px] text-white/70 font-medium">Lun–Vie · 13:00–19:00</div>
                   </div>
-                  <div className="flex items-center gap-1.5">
-                    <div className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.6)]" />
-                    <span className="text-[11px] text-emerald-400/80 font-medium">Disponible</span>
+                  <div className={`flex items-center gap-1.5 transition-opacity duration-300 ${isMounted ? 'opacity-100' : 'opacity-0'}`}>
+                    <div className={`w-2 h-2 rounded-full ${
+                      availability.status === 'available'
+                        ? 'bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.6)]'
+                        : 'bg-white/30'
+                    }`} />
+                    <span className={`text-[11px] font-medium ${
+                      availability.status === 'available'
+                        ? 'text-emerald-400/80'
+                        : 'text-white/50'
+                    }`}>
+                      {availability.text}
+                    </span>
                   </div>
                 </div>
               </div>

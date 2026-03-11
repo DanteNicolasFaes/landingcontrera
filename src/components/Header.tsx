@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { getWhatsAppUrl } from '@/lib/whatsapp';
 
 const navLinks = [
   { label: 'Inicio', href: '#inicio' },
@@ -10,7 +11,6 @@ const navLinks = [
   { label: 'Contacto', href: '#contacto' },
 ];
 
-const WHATSAPP_NUMBER = '5491100000000';
 const WHATSAPP_MSG = encodeURIComponent('Hola, quisiera hacer una consulta legal.');
 
 export default function Header() {
@@ -60,8 +60,8 @@ export default function Header() {
         {/* CTA + Mobile */}
         <div className="flex items-center gap-4">
           <a
-            href={`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`}
-            target="_blank"
+            href="#"
+            onClick={(e) => { e.preventDefault(); window.open(getWhatsAppUrl(WHATSAPP_MSG), '_blank', 'noopener,noreferrer'); }}
             rel="noopener noreferrer"
             className="hidden sm:inline-flex items-center gap-2 bg-[#C8A96E] hover:bg-[#D9BE8A] text-[#0F1923] text-[12px] font-semibold uppercase tracking-widest px-5 py-2.5 rounded-sm transition-all duration-300 hover:-translate-y-0.5 shadow-gold"
           >
@@ -101,8 +101,8 @@ export default function Header() {
             </a>
           ))}
           <a
-            href={`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`}
-            target="_blank"
+            href="#"
+            onClick={(e) => { e.preventDefault(); window.open(getWhatsAppUrl(WHATSAPP_MSG), '_blank', 'noopener,noreferrer'); }}
             rel="noopener noreferrer"
             className="mt-3 flex items-center justify-center gap-2 bg-[#C8A96E] text-[#0F1923] text-[13px] font-semibold uppercase tracking-widest px-5 py-3 rounded-sm"
           >

@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
+import { getWhatsAppUrl } from '@/lib/whatsapp';
 
-const WHATSAPP_NUMBER = '5491100000000';
 const WHATSAPP_MSG = encodeURIComponent('Hola, quiero hacer una consulta legal.');
 
 export default function FinalCTASection() {
@@ -18,7 +18,7 @@ export default function FinalCTASection() {
   }, []);
 
   return (
-    <section ref={ref} className="py-24 md:py-32 bg-[#F7F4EE] relative overflow-hidden" aria-labelledby="cta-title">
+    <section ref={ref} className="py-16 md:py-20 bg-[#F7F4EE] relative overflow-hidden" aria-labelledby="cta-title">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-grid-lines opacity-50 pointer-events-none" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-full bg-gradient-to-b from-transparent via-[#C8A96E]/20 to-transparent pointer-events-none" />
@@ -43,8 +43,8 @@ export default function FinalCTASection() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href={`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`}
-              target="_blank"
+              href="#"
+              onClick={(e) => { e.preventDefault(); window.open(getWhatsAppUrl(WHATSAPP_MSG), '_blank', 'noopener,noreferrer'); }}
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#22C05E] text-white font-semibold text-[13px] uppercase tracking-widest px-10 py-4 rounded-sm transition-all duration-300 hover:-translate-y-0.5 shadow-[0_4px_24px_rgba(37,211,102,0.3)] hover:shadow-[0_8px_32px_rgba(37,211,102,0.4)]"
             >

@@ -1,9 +1,8 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
+import { getWhatsAppUrl } from '@/lib/whatsapp';
 
-
-const WHATSAPP_NUMBER = '5491100000000';
 const WHATSAPP_MSG = encodeURIComponent('Hola, me gustaría conocer más sobre el estudio.');
 
 const differentials = [
@@ -55,8 +54,8 @@ export default function AboutSection() {
 
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
               <a
-                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`}
-                target="_blank"
+                href="#"
+                onClick={(e) => { e.preventDefault(); window.open(getWhatsAppUrl(WHATSAPP_MSG), '_blank', 'noopener,noreferrer'); }}
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-[#1C2B4A] hover:bg-[#2A3F6A] text-white text-[12px] font-semibold uppercase tracking-widest px-7 py-3.5 rounded-sm transition-all duration-300 hover:-translate-y-0.5 shadow-navy"
               >

@@ -4,12 +4,13 @@ import React from 'react';
 import AppLogo from '@/components/ui/AppLogo';
 
 
-const WHATSAPP_NUMBER = '5491100000000';
+import { getWhatsAppUrl } from '@/lib/whatsapp';
+
 const WHATSAPP_MSG = encodeURIComponent('Hola, quisiera hacer una consulta legal.');
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0F1923] border-t border-white/[0.06] py-16 px-6 md:px-10 lg:px-16">
+    <footer className="bg-[#0F1923] border-t border-white/[0.06] py-10 px-6 md:px-10 lg:px-16">
       <div className="max-w-7xl mx-auto">
         {/* Arc Browser Split Pattern */}
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-10">
@@ -57,7 +58,7 @@ export default function Footer() {
             © 2025 Marcela Contrera & Asoc. Todos los derechos reservados. T° XVI F° 125 CASM
           </span>
           <div className="flex items-center gap-6">
-            <a href={`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`} target="_blank" rel="noopener noreferrer" className="text-[12px] text-white/40 hover:text-[#C8A96E] transition-colors font-medium">
+            <a href="#" onClick={(e) => { e.preventDefault(); window.open(getWhatsAppUrl(WHATSAPP_MSG), '_blank', 'noopener,noreferrer'); }} rel="noopener noreferrer" className="text-[12px] text-white/40 hover:text-[#C8A96E] transition-colors font-medium cursor-pointer">
               WhatsApp
             </a>
             <span className="text-white/20 text-[12px]">Privacidad</span>

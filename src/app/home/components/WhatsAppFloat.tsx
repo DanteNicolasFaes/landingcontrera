@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { getWhatsAppUrl } from '@/lib/whatsapp';
 
-const WHATSAPP_NUMBER = '5491100000000';
 const WHATSAPP_MSG = encodeURIComponent('Hola, quisiera hacer una consulta legal.');
 
 export default function WhatsAppFloat() {
@@ -15,8 +15,8 @@ export default function WhatsAppFloat() {
 
   return (
     <a
-      href={`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`}
-      target="_blank"
+      href="#"
+      onClick={(e) => { e.preventDefault(); window.open(getWhatsAppUrl(WHATSAPP_MSG), '_blank', 'noopener,noreferrer'); }}
       rel="noopener noreferrer"
       aria-label="Consultar por WhatsApp"
       className={`whatsapp-float flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] shadow-[0_4px_24px_rgba(37,211,102,0.4)] transition-all duration-500 hover:scale-110 hover:shadow-[0_8px_32px_rgba(37,211,102,0.5)] ${
