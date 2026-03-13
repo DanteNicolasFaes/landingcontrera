@@ -39,7 +39,7 @@ const services = [
     icon: '💼',
     title: 'Derecho Laboral',
     subtitle: 'Indemnización por despido, incapacidad y acuerdos laborales',
-    cases: ['Despido sin causa', 'Liquidación incorrecta', 'Indemnizaciones adeudadas', 'Acuerdos laborales', 'Reclamos ante el SECLO', 'Incapacidad laboral', 'Enfermedad inculpable'],
+    cases: ['Despido sin causa', 'Liquidación incorrecta', 'Indemnizaciones adeudadas', 'Acuerdos ante el Ministerio de Trabajo', 'Reclamos ante el Ministerio de Trabajo', 'Incapacidad laboral', 'Enfermedad inculpable'],
     trust: 'Defendemos tus derechos como trabajador.',
     msg: 'Hola, tengo una consulta laboral.',
     span: 'md:col-span-2',
